@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Animazione & Costumi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🎭 Animazione & Costumi</div>
+      <button class="hamburger" id="hamburger">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#animazione">Animazione Eventi</a></li>
+        <li><a href="#costumi">Affitto Costumi</a></li>
+        <li><a href="#preventivo">Preventivo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h1>Animazione & Affitto Costumi</h1>
+    <p>Portiamo energia, stile e spettacolo nei tuoi eventi.</p>
+    <a href="#preventivo" class="btn">Richiedi Preventivo</a>
+  </section>
+
+  <!-- Sezione Animazione -->
+  <section id="animazione" class="section">
+    <h2>Animazione Eventi</h2>
+    <p>Offriamo ballerine e ballerini professionisti per matrimoni, feste private, eventi aziendali e spettacoli a tema.</p>
+  </section>
+
+  <!-- Sezione Costumi -->
+  <section id="costumi" class="section alt">
+    <h2>Affitto Costumi</h2>
+    <p>Un vasto catalogo di costumi per eventi, spettacoli teatrali e feste a tema. Qualità e stile per rendere unico ogni momento.</p>
+  </section>
+
+  <!-- Preventivo -->
+  <section id="preventivo" class="section">
+    <h2>Richiedi un Preventivo</h2>
+    <form name="preventivo" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="preventivo">
+      <label>Nome e Cognome</label>
+      <input type="text" name="nome" required>
+      
+      <label>Email</label>
+      <input type="email" name="email" required>
+      
+      <label>Telefono</label>
+      <input type="tel" name="telefono">
+      
+      <label>Servizio richiesto</label>
+      <select name="servizio" required>
+        <option value="">-- Seleziona --</option>
+        <option value="animazione">Animazione Eventi</option>
+        <option value="costumi">Affitto Costumi</option>
+      </select>
+      
+      <label>Data Evento</label>
+      <input type="date" name="data">
+      
+      <label>Messaggio</label>
+      <textarea name="messaggio" rows="4"></textarea>
+      
+      <button type="submit" class="btn">Invia Richiesta</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Animazione & Costumi</p>
+    <p>Seguici su <a href="https://instagram.com" target="_blank">Instagram</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
