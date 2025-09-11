@@ -3,41 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Animazione & Costumi</title>
+  <title>Portfolio Animazione & Creazioni Artista</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navbar -->
   <header>
     <nav class="navbar">
-      <div class="logo">🎭 Animazione & Costumi</div>
+      <div class="logo">🎭 Animazione & Creazioni</div>
       <button class="hamburger" id="hamburger">☰</button>
       <ul class="nav-links" id="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#animazione">Animazione Eventi</a></li>
+        <li><a href="#animazione">Animazione</a></li>
         <li><a href="#costumi">Affitto Costumi</a></li>
+        <li><a href="#portfolio">Portfolio Artista</a></li>
+        <li><a href="#artista">Chi è l'artista</a></li>
         <li><a href="#preventivo">Preventivo</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Home -->
   <section id="home" class="hero">
-    <h1>Animazione & Affitto Costumi</h1>
-    <p>Portiamo energia, stile e spettacolo nei tuoi eventi.</p>
-    <a href="#preventivo" class="btn">Richiedi Preventivo</a>
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="video-placeholder.mp4" type="video/mp4">
+      <!-- Inserisci qui immagine alternativa -->
+    </video>
+    <div class="hero-content">
+      <h1>Animazione & Creazioni Artista</h1>
+      <p>Portiamo energia e stile ai tuoi eventi.</p>
+      <a href="#preventivo" class="btn">Richiedi Preventivo</a>
+    </div>
   </section>
 
-  <!-- Sezione Animazione -->
+  <!-- Animazione Eventi -->
   <section id="animazione" class="section">
     <h2>Animazione Eventi</h2>
-    <p>Offriamo ballerine e ballerini professionisti per matrimoni, feste private, eventi aziendali e spettacoli a tema.</p>
+    <p>Ballerine e ballerini professionisti per matrimoni, feste private, eventi aziendali e spettacoli a tema.</p>
   </section>
 
-  <!-- Sezione Costumi -->
+  <!-- Affitto Costumi -->
   <section id="costumi" class="section alt">
     <h2>Affitto Costumi</h2>
-    <p>Un vasto catalogo di costumi per eventi, spettacoli teatrali e feste a tema. Qualità e stile per rendere unico ogni momento.</p>
+    <p>Tutti i costumi sono fatti a mano con cura e attenzione ai dettagli.</p>
+  </section>
+
+  <!-- Portfolio Artista -->
+  <section id="portfolio" class="section">
+    <h2>Artist Creation Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="cosplay">Cosplay</div>
+      <div class="portfolio-item" data-category="scena">Costumi di scena</div>
+      <div class="portfolio-item" data-category="tema">Costumi a tema</div>
+      <div class="portfolio-item" data-category="indumenti">Indumenti dipinti</div>
+      <div class="portfolio-item" data-category="oggettistica">Oggettistica</div>
+      <div class="portfolio-item" data-category="quadri">Quadri</div>
+    </div>
+  </section>
+
+  <!-- Overlay Lightbox -->
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <span id="overlay-close">&times;</span>
+      <h3 id="overlay-title"></h3>
+      <div id="overlay-images" class="overlay-images"></div>
+    </div>
+  </div>
+
+  <!-- Chi è l'artista -->
+  <section id="artista" class="section alt">
+    <h2>Chi è l'artista</h2>
+    <p>Foto, bio e percorso artistico dell’artista. Esperienze, progetti e riconoscimenti.</p>
   </section>
 
   <!-- Preventivo -->
@@ -73,7 +109,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Animazione & Costumi</p>
+    <p>© 2025 Animazione & Creazioni Artista</p>
     <p>Seguici su <a href="https://instagram.com" target="_blank">Instagram</a></p>
   </footer>
 
