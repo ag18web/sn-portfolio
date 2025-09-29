@@ -1,54 +1,36 @@
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 const links = navLinks.querySelectorAll("a");
+const sections = document.querySelectorAll("section");
 
-// Toggle menu
+// Toggle menu su mobile
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-// Chiudi menu quando clicchi su link
+// Mostra solo la sezione cliccata
 links.forEach(link => {
-  link.addEventListener("click", () => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // evita lo scroll
+    const targetId = link.getAttribute("href").substring(1);
+
+    // Nascondi tutte le sezioni
+    sections.forEach(sec => sec.style.display = "none");
+
+    // Mostra solo quella selezionata
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) targetSection.style.display = "block";
+
+    // Chiudi il menu
     navLinks.classList.remove("active");
   });
 });
 
-// Portfolio lightbox
-const portfolioItems = document.querySelectorAll(".portfolio-item");
-const overlay = document.getElementById("overlay");
-const overlayTitle = document.getElementById("overlay-title");
-const overlayImages = document.getElementById("overlay-images");
-const overlayClose = document.getElementById("overlay-close");
-
-// Dati immagini (esempio placeholder)
-const portfolioData = {
-  cosplay: ["img/cosplay1.jpg","img/cosplay2.jpg"],
-  scena: ["img/scena1.jpg","img/scena2.jpg"],
-  tema: ["img/tema1.jpg","img/tema2.jpg"],
-  indumenti: ["img/indumenti1.jpg","img/indumenti2.jpg"],
-  oggettistica: ["img/oggettistica1.jpg","img/oggettistica2.jpg"],
-  quadri: ["img/quadri1.jpg","img/quadri2.jpg"]
-};
-
-portfolioItems.forEach(item => {
-  item.addEventListener("click", () => {
-    const cat = item.getAttribute("data-category");
-    overlayTitle.textContent = item.textContent;
-    overlayImages.innerHTML = "";
-    portfolioData[cat].forEach(src => {
-      const img = document.createElement("img");
-      img.src = src;
-      overlayImages.appendChild(img);
-    });
-    overlay.style.display = "flex";
+// Mostra solo la home al caricamento
+window.addEventListener("DOMContentLoaded", () => {
+  sections.forEach(sec => {
+    if (sec.id !== "home") {
+      sec.style.display = "none";
+    }
   });
-});
-
-overlayClose.addEventListener("click", () => {
-  overlay.style.display = "none";
-});
-
-overlay.addEventListener("click", (e) => {
-  if(e.target === overlay) overlay.style.display = "none";
 });
