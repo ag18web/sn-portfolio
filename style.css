@@ -161,3 +161,61 @@ footer {
 
 
 }
+
+/* Navbar base */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #111;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Hamburger nascosto su desktop */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    width: 200px;
+    text-align: right;
+    padding: 1rem;
+    display: none; /* nascosto di default */
+  }
+
+  .nav-links.active {
+    display: flex; /* si apre col click */
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
