@@ -32,4 +32,89 @@
       </video>
       <div class="hero-content">
         <h1>Benvenuti nel Portfolio</h1>
-        <p>Costumi artigianali e creazioni unic
+        <p>Costumi artigianali e creazioni uniche — tutte fatte a mano.</p>
+        <a class="btn" href="#preventivo">Richiedi Preventivo</a>
+      </div>
+    </section>
+
+    <section id="animazione" class="page-section">
+      <div class="section-inner">
+        <h2>Animazione Eventi</h2>
+        <p>Ballerini e ballerine professionisti per eventi indimenticabili.</p>
+      </div>
+    </section>
+
+    <section id="costumi" class="page-section">
+      <div class="section-inner">
+        <h2>Affitto Costumi</h2>
+        <p>Tutti i costumi sono fatti a mano con cura ed attenzione al dettaglio.</p>
+      </div>
+    </section>
+
+    <section id="portfolio" class="page-section">
+      <div class="section-inner">
+        <h2>Artist Creation Portfolio</h2>
+        <p>Seleziona una categoria per vedere le gallerie.</p>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="cosplay">Cosplay</div>
+          <div class="portfolio-item" data-category="scena">Costumi di scena</div>
+          <div class="portfolio-item" data-category="tema">Costumi a tema</div>
+          <div class="portfolio-item" data-category="indumenti">Indumenti dipinti</div>
+          <div class="portfolio-item" data-category="oggettistica">Oggettistica</div>
+          <div class="portfolio-item" data-category="quadri">Quadri</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERLAY LIGHTBOX per le gallerie -->
+    <div id="overlay" class="overlay" aria-hidden="true">
+      <div class="overlay-content" role="dialog" aria-modal="true">
+        <button id="overlay-close" class="overlay-close" aria-label="Chiudi">×</button>
+        <h3 id="overlay-title"></h3>
+        <div id="overlay-images" class="overlay-images"></div>
+      </div>
+    </div>
+
+    <section id="chi-siamo" class="page-section">
+      <div class="section-inner">
+        <h2>Chi è l'artista</h2>
+        <p>Breve bio, esperienze e progetti.</p>
+      </div>
+    </section>
+
+    <section id="preventivo" class="page-section">
+      <div class="section-inner">
+        <h2>Richiedi un Preventivo</h2>
+        <form name="preventivo" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="preventivo" />
+          <label>Nome e Cognome</label>
+          <input type="text" name="nome" required />
+          <label>Email</label>
+          <input type="email" name="email" required />
+          <label>Telefono</label>
+          <input type="tel" name="telefono" />
+          <label>Servizio</label>
+          <select name="servizio" required>
+            <option value="">-- Seleziona --</option>
+            <option value="animazione">Animazione Eventi</option>
+            <option value="costumi">Affitto Costumi</option>
+          </select>
+          <label>Data Evento</label>
+          <input type="date" name="data" />
+          <label>Messaggio</label>
+          <textarea name="messaggio" rows="4"></textarea>
+          <button type="submit" class="btn">Invia Richiesta</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Animazione & Creazioni Artista — tutti i costumi sono fatti a mano</p>
+    <p><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
