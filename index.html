@@ -3,115 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Animazione & Creazioni Artista</title>
+  <title>Portfolio Artista</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- Navbar con menu hamburger -->
   <header>
-    <nav class="navbar">
-      <div class="logo">🎭 Animazione & Creazioni</div>
-      <button class="hamburger" id="hamburger">☰</button>
+    <nav>
+      <div class="logo">Portfolio</div>
+      <div class="hamburger" id="hamburger">
+        ☰
+      </div>
       <ul class="nav-links" id="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#animazione">Animazione</a></li>
+        <li><a href="#animazione">Animazione Eventi</a></li>
         <li><a href="#costumi">Affitto Costumi</a></li>
-        <li><a href="#portfolio">Portfolio Artista</a></li>
-        <li><a href="#artista">Chi è l'artista</a></li>
-        <li><a href="#preventivo">Preventivo</a></li>
+        <li><a href="#portfolio">Artist Creation Portfolio</a></li>
+        <li><a href="#chi-siamo">Chi è l'artista</a></li>
+        <li><a href="#preventivo">Richiedi Preventivo</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Home -->
-  <section id="home" class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-      <source src="video-placeholder.mp4" type="video/mp4">
-      <!-- Inserisci qui immagine alternativa -->
-    </video>
-    <div class="hero-content">
-      <h1>Animazione & Creazioni Artista</h1>
-      <p>Portiamo energia e stile ai tuoi eventi.</p>
-      <a href="#preventivo" class="btn">Richiedi Preventivo</a>
+  <!-- Sezione Home -->
+  <section id="home">
+    <div class="hero">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="video-placeholder.mp4" type="video/mp4">
+        Il tuo browser non supporta i video.
+      </video>
+      <div class="hero-content">
+        <h1>Benvenuti nel Portfolio</h1>
+        <p>Costumi artigianali e creazioni uniche, tutte fatte a mano</p>
+        <a href="#preventivo" class="btn">Richiedi Preventivo</a>
+      </div>
     </div>
   </section>
 
-  <!-- Animazione Eventi -->
-  <section id="animazione" class="section">
+  <!-- Sezione Animazione -->
+  <section id="animazione">
     <h2>Animazione Eventi</h2>
-    <p>Ballerine e ballerini professionisti per matrimoni, feste private, eventi aziendali e spettacoli a tema.</p>
+    <p>Offriamo ballerini e ballerine per eventi indimenticabili.</p>
   </section>
 
-  <!-- Affitto Costumi -->
-  <section id="costumi" class="section alt">
+  <!-- Sezione Costumi -->
+  <section id="costumi">
     <h2>Affitto Costumi</h2>
-    <p>Tutti i costumi sono fatti a mano con cura e attenzione ai dettagli.</p>
+    <p>Tutti i costumi sono fatti a mano, con cura artigianale.</p>
   </section>
 
-  <!-- Portfolio Artista -->
-  <section id="portfolio" class="section">
+  <!-- Sezione Portfolio -->
+  <section id="portfolio">
     <h2>Artist Creation Portfolio</h2>
     <div class="portfolio-grid">
-      <div class="portfolio-item" data-category="cosplay">Cosplay</div>
-      <div class="portfolio-item" data-category="scena">Costumi di scena</div>
-      <div class="portfolio-item" data-category="tema">Costumi a tema</div>
-      <div class="portfolio-item" data-category="indumenti">Indumenti dipinti</div>
-      <div class="portfolio-item" data-category="oggettistica">Oggettistica</div>
-      <div class="portfolio-item" data-category="quadri">Quadri</div>
+      <div class="portfolio-item">Cosplay</div>
+      <div class="portfolio-item">Costumi di Scena</div>
+      <div class="portfolio-item">Costumi a Tema</div>
+      <div class="portfolio-item">Indumenti Dipinti</div>
+      <div class="portfolio-item">Oggettistica</div>
+      <div class="portfolio-item">Quadri</div>
     </div>
   </section>
 
-  <!-- Overlay Lightbox -->
-  <div id="overlay" class="overlay">
-    <div class="overlay-content">
-      <span id="overlay-close">&times;</span>
-      <h3 id="overlay-title"></h3>
-      <div id="overlay-images" class="overlay-images"></div>
-    </div>
-  </div>
-
-  <!-- Chi è l'artista -->
-  <section id="artista" class="section alt">
-    <h2>Chi è l'artista</h2>
-    <p>Foto, bio e percorso artistico dell’artista. Esperienze, progetti e riconoscimenti.</p>
+  <!-- Sezione Chi siamo -->
+  <section id="chi-siamo">
+    <h2>Chi è l’artista</h2>
+    <p>Breve bio dell’artista, esperienze e progetti realizzati.</p>
   </section>
 
-  <!-- Preventivo -->
-  <section id="preventivo" class="section">
+  <!-- Sezione Preventivo -->
+  <section id="preventivo">
     <h2>Richiedi un Preventivo</h2>
-    <form name="preventivo" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="preventivo">
-      <label>Nome e Cognome</label>
-      <input type="text" name="nome" required>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
       
-      <label>Email</label>
-      <input type="email" name="email" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
       
-      <label>Telefono</label>
-      <input type="tel" name="telefono">
+      <label for="messaggio">Messaggio:</label>
+      <textarea id="messaggio" name="messaggio" required></textarea>
       
-      <label>Servizio richiesto</label>
-      <select name="servizio" required>
-        <option value="">-- Seleziona --</option>
-        <option value="animazione">Animazione Eventi</option>
-        <option value="costumi">Affitto Costumi</option>
-      </select>
-      
-      <label>Data Evento</label>
-      <input type="date" name="data">
-      
-      <label>Messaggio</label>
-      <textarea name="messaggio" rows="4"></textarea>
-      
-      <button type="submit" class="btn">Invia Richiesta</button>
+      <button type="submit">Invia</button>
     </form>
   </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Animazione & Creazioni Artista</p>
-    <p>Seguici su <a href="https://instagram.com" target="_blank">Instagram</a></p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
