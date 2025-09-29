@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Portfolio Artista</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navbar con menu hamburger -->
+  <!-- NAV -->
   <header>
-    <nav>
-      <div class="logo">Portfolio</div>
-      <div class="hamburger" id="hamburger">
-        ☰
-      </div>
-      <ul class="nav-links" id="nav-links">
+    <nav class="navbar">
+      <div class="logo">🎭 Animazione & Creazioni</div>
+      <button id="hamburger" class="hamburger" aria-label="Apri menu" aria-expanded="false">☰</button>
+      <ul id="nav-links" class="nav-links" role="menu">
         <li><a href="#home">Home</a></li>
         <li><a href="#animazione">Animazione Eventi</a></li>
         <li><a href="#costumi">Affitto Costumi</a></li>
@@ -26,69 +24,12 @@
     </nav>
   </header>
 
-  <!-- Sezione Home -->
-  <section id="home">
-    <div class="hero">
+  <!-- SEZIONI (tutte hanno class page-section) -->
+  <main>
+    <section id="home" class="page-section hero">
       <video autoplay muted loop playsinline class="hero-video">
-        <source src="video-placeholder.mp4" type="video/mp4">
-        Il tuo browser non supporta i video.
+        <source src="video-placeholder.mp4" type="video/mp4" />
       </video>
       <div class="hero-content">
         <h1>Benvenuti nel Portfolio</h1>
-        <p>Costumi artigianali e creazioni uniche, tutte fatte a mano</p>
-        <a href="#preventivo" class="btn">Richiedi Preventivo</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sezione Animazione -->
-  <section id="animazione">
-    <h2>Animazione Eventi</h2>
-    <p>Offriamo ballerini e ballerine per eventi indimenticabili.</p>
-  </section>
-
-  <!-- Sezione Costumi -->
-  <section id="costumi">
-    <h2>Affitto Costumi</h2>
-    <p>Tutti i costumi sono fatti a mano, con cura artigianale.</p>
-  </section>
-
-  <!-- Sezione Portfolio -->
-  <section id="portfolio">
-    <h2>Artist Creation Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-item">Cosplay</div>
-      <div class="portfolio-item">Costumi di Scena</div>
-      <div class="portfolio-item">Costumi a Tema</div>
-      <div class="portfolio-item">Indumenti Dipinti</div>
-      <div class="portfolio-item">Oggettistica</div>
-      <div class="portfolio-item">Quadri</div>
-    </div>
-  </section>
-
-  <!-- Sezione Chi siamo -->
-  <section id="chi-siamo">
-    <h2>Chi è l’artista</h2>
-    <p>Breve bio dell’artista, esperienze e progetti realizzati.</p>
-  </section>
-
-  <!-- Sezione Preventivo -->
-  <section id="preventivo">
-    <h2>Richiedi un Preventivo</h2>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-      
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="messaggio">Messaggio:</label>
-      <textarea id="messaggio" name="messaggio" required></textarea>
-      
-      <button type="submit">Invia</button>
-    </form>
-  </section>
-
-  <script src="script.js"></script>
-</body>
-</html>
+        <p>Costumi artigianali e creazioni unic
