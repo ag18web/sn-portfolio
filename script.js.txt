@@ -1,36 +1,96 @@
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-const links = navLinks.querySelectorAll("a");
-const sections = document.querySelectorAll("section");
+document.addEventListener('DOMContentLoaded', () => {
 
-// Toggle menu su mobile
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-});
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  const navAnchors = navLinks.querySelectorAll('a');
+  const sections = document.querySelectorAll('.page-section');
 
-// Mostra solo la sezione cliccata
-links.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault(); // evita lo scroll
-    const targetId = link.getAttribute("href").substring(1);
+  // helper: nasconde tutte le sezioni
+  function hideAllSections() {
+    sections.forEach(s => s.classList.remove('active'));
+  }
 
-    // Nascondi tutte le sezioni
-    sections.forEach(sec => sec.style.display = "none");
+  // mostra sezione per id
+  function showSection(id) {
+    const target = document.getElementById(id);
+    if (!target) return;
+    target.classList.add('active');
+    // porta in cima (opzionale)
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
 
-    // Mostra solo quella selezionata
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) targetSection.style.display = "block";
+  // mostra Home all'avvio
+  hideAllSections();
+  showSection('home');
 
-    // Chiudi il menu
-    navLinks.classList.remove("active");
+  // toggle menu (hamburger)
+  hamburger.addEventListener('click', () => {
+    const isActive = navLinks.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
   });
-});
 
-// Mostra solo la home al caricamento
-window.addEventListener("DOMContentLoaded", () => {
-  sections.forEach(sec => {
-    if (sec.id !== "home") {
-      sec.style.display = "none";
+  // click sui link del menu: mostra sezione, chiude menu (mobile)
+  navAnchors.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = a.getAttribute('href') || '';
+      const id = href.replace('#','') || 'home';
+      hideAllSections();
+      showSection(id);
+      // chiudi menu (se era aperto)
+      navLinks.classList.remove('active');
+      hamburger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ---------- Portfolio lightbox (semplice) ---------- */
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  const overlay = document.getElementById('overlay');
+  const overlayTitle = document.getElementById('overlay-title');
+  const overlayImages = document.getElementById('overlay-images');
+  const overlayClose = document.getElementById('overlay-close');
+
+  // esempio dati - sostituisci questi path con i tuoi file reali in /img/...
+  const portfolioData = {
+    cosplay: ["img/cosplay1.jpg","img/cosplay2.jpg"],
+    scena: ["img/scena1.jpg","img/scena2.jpg"],
+    tema: ["img/tema1.jpg","img/tema2.jpg"],
+    indumenti: ["img/indumenti1.jpg","img/indumenti2.jpg"],
+    oggettistica: ["img/oggettistica1.jpg","img/oggettistica2.jpg"],
+    quadri: ["img/quadri1.jpg","img/quadri2.jpg"]
+  };
+
+  portfolioItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const cat = item.getAttribute('data-category');
+      overlayTitle.textContent = item.textContent;
+      overlayImages.innerHTML = '';
+      const imgs = portfolioData[cat] || [];
+      if (imgs.length === 0) {
+        overlayImages.innerHTML = '<p>Nessuna immagine per questa categoria (usa immagini reali nella cartella /img)</p>';
+      } else {
+        imgs.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = item.textContent;
+          overlayImages.appendChild(img);
+        });
+      }
+      overlay.classList.add('show');
+      overlay.setAttribute('aria-hidden','false');
+    });
+  });
+
+  overlayClose.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    overlay.setAttribute('aria-hidden','true');
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('show');
+      overlay.setAttribute('aria-hidden','true');
     }
   });
+
 });
